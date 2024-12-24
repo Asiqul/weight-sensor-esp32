@@ -51,8 +51,6 @@ bool isTare = false;
 float limitWeight;
 bool isCalibrate = false;
 bool start = false;
-bool isReady = false;
-// String calStatus = "Not OK";
 String tareStatus = "Not OK";
 /* GLOBAL PARAMETERS END */
 
@@ -121,7 +119,7 @@ void setup()
 void loop()
 {
   display.clearDisplay();
-  while (!isReady)
+  while (true)
   {
     char input = customKeypad.getKey();
 
@@ -273,6 +271,6 @@ void DisplayControl(void *pvParameters)
     {
       digitalWrite(RELAY_PIN, HIGH);
     }
-    delay(500);
+    vTaskDelay(10);
   }
 }
